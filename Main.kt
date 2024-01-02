@@ -10,24 +10,22 @@ fun main(){
     val hasAngeredBarbarians = false
     val playerClass = "paladin"
 
-    val quest: String = if(playerLevel == 1) {
-        "Test"
-    } else if (playerLevel <= 5) {
-        val canTalkToBarbarians = !hasAngeredBarbarians && (hasBefriendedBarbarians || playerClass == "barbarian")
-       if(canTalkToBarbarians) {
-          "Convince the Barbarians to call of invasion"
-        } else {
-           "Save town from barbarians"
-       }
-    } else if(playerLevel == 6) {
-        "Test"
-    } else if(playerLevel == 7) {
-        "Test"
-    } else if(playerLevel == 8) {
-        "Test"
-    } else {
-        "Test"
+    val quest: String = when (playerLevel) {
+        1 -> "Hello"
+        in 2..5 -> {
+            val canTalkToBarbarians = !hasAngeredBarbarians && (hasBefriendedBarbarians || playerClass == "barbarian")
+            if (canTalkToBarbarians) {
+                "Convince the Barbarians to call of invasion"
+            } else {
+                "Save town from barbarians"
+            }
+        }
+        6 -> "Test"
+        7 -> "Test"
+        8 -> "Test"
+        else -> "Test"
     }
+
     println("The hero approaches the bounty boar: It Reads...")
     println(quest)
 
